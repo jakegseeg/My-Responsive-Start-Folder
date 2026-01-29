@@ -1,0 +1,100 @@
+/* Prevent adjustments of font size after orientation changes.  */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  height: 100%;
+}
+
+/*---- apply a natural box layout model to all elements -------*/
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; /*---- padding is inside, margin is outside -------*/
+}
+
+body {
+  height: 100%;
+  font-family: $defaultFont;
+  font-weight: $normalWeight;
+  color: $fontColor;
+}
+
+#headerWrapper {
+  background-color: rgb(255, 179, 147);
+  color: $secondaryColor;
+  padding: $gutter;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem $gutter;
+  gap: 8px;
+  h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: $normalWeight;
+  }
+}
+
+#navWrapper {
+  /* top matches header background; gradient flows top -> bottom to a logo-ish blue */
+  nav {
+    background-color: rgb(
+      255,
+      179,
+      147
+    ); /* fallback — matches #headerWrapper */
+    background-image: linear-gradient(
+      to bottom,
+      rgb(255, 179, 147) 0%,
+      #5197e1 100%
+    );
+    color: $secondaryColor;
+    padding: $gutter;
+  }
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    li {
+      flex: 1;
+    }
+  }
+
+  li.active {
+    background-color: none;
+    text-decoration: underline;
+  }
+    a {
+      display: block;
+      padding: 0.75rem;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+        color: #5197e1;
+      }
+    }
+  }
+
+// begin footer
+
+#footerWrapper {
+  background-color: #5197e1;
+
+}
+footer {
+    padding: 0.5rem $gutter;
+    p{
+        margin: 0;
+        font-weight: $lightWeight;
+        text-align: center;
+    }
+}
