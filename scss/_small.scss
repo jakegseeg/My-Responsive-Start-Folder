@@ -32,10 +32,12 @@ header {
   align-items: flex-end;
   padding: 1rem $gutter;
   gap: 8px;
+
   h1 {
     margin: 0;
     font-size: 1.2rem;
     font-weight: $normalWeight;
+    color: rgb(0, 0, 0);
   }
 }
 
@@ -69,17 +71,16 @@ nav {
   }
 
   li.active {
-    background-color: none;
     text-decoration: underline;
   }
     a {
       display: block;
       padding: 0.75rem;
-      color: white;
+      color: black;
       text-align: center;
       text-decoration: none;
       &:hover {
-        color: #5197e1;
+        color: white;
       }
     }
   }
