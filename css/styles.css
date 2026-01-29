@@ -397,7 +397,7 @@ footer p {
   margin: 0;
   font-weight: 300;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 @media only screen and (min-width: 35rem) {
