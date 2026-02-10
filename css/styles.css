@@ -328,11 +328,16 @@ html {
 
 body {
   height: 100%;
-  font-family: "Fira Sans", sans-serif;
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
-  color: #333;
+  color: #222;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Header with strong contrast and a visual tangent where it meets the nav */
 #headerWrapper {
   background-color: rgb(255, 179, 147);
   color: #ffffff;
@@ -342,48 +347,142 @@ body {
 
 header {
   display: flex;
-  align-items: flex-end;
+  align-items: center; /* alignment */
+  justify-content: flex-start;
   padding: 1rem 16px;
-  gap: 8px;
+  gap: 12px;
+}
+header img {
+  display: block; /* avoid inline gaps */
+  width: 40px;
+  height: 40px;
 }
 header h1 {
   margin: 0;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: rgb(0, 0, 0);
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-size: 1.3rem; /* hierarchy */
+  font-weight: 700;
+  color: #111;
+  line-height: 1;
 }
 
+/* phone link in header */
+.tel-link {
+  margin-left: auto; /* push to right */
+  align-self: center;
+  font-weight: 500;
+  color: #08121a;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(8, 18, 26, 0.06);
+}
+
+.tel-link:focus, .tel-link:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #08121a;
+}
+
+/* make nav touch the header to create a visual tangent; background extends full width
+   while the inner nav content is constrained to a centered max width */
 #navWrapper {
-  /* top matches header background; gradient flows top -> bottom to a logo-ish blue */
+  margin-top: -8px;
+  background-image: linear-gradient(to bottom, rgb(255, 179, 147) 0%, #5197e1 100%);
+  /* full-width wrapper background — padding on the nav itself */
 }
 #navWrapper nav {
-  background-color: rgb(255, 179, 147); /* fallback — matches #headerWrapper */
-  background-image: linear-gradient(to bottom, rgb(255, 179, 147) 0%, #5197e1 100%);
+  max-width: 75rem;
+  margin: 0 auto; /* center nav content */
   color: #ffffff;
   padding: 16px;
+  border-radius: 6px 6px 0 0;
 }
 
+nav {
+  /* wayfinding: active state stands out */
+}
 nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  display: flex;
+  display: block; /* SMALL: vertical menu */
 }
 nav ul li {
-  flex: 1;
+  margin-bottom: 0.25rem;
 }
 nav li.active {
-  text-decoration: underline;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding-left: 0.25rem;
 }
 nav a {
   display: block;
-  padding: 0.75rem;
-  color: black;
-  text-align: center;
+  padding: 0.6rem 0.5rem;
+  color: #08121a;
+  text-align: left; /* left-aligned items per requirement */
   text-decoration: none;
+  font-weight: 500;
+  border-bottom: 3px solid transparent; /* subtle alignment/wayfinding */
 }
 nav a:hover {
-  color: white;
+  color: #ffffff; /* hover: text color changes */
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* content area */
+section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Card grid for the posters demonstrating proximity, contrast, and hierarchy */
+.parent1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem; /* proximity: consistent gaps */
+  padding: 16px;
+}
+
+.parent1 > div {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* alignment */
+  gap: 0.5rem;
+  border: 1px solid rgba(8, 18, 26, 0.04);
+}
+
+.parent1 h2 {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  margin: 0;
+  color: #08121a; /* contrast */
+}
+
+.card-date {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.parent1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+section div {
+  width: 100%;
+  padding: 1rem 16px;
+}
+section div img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 #footerWrapper {
@@ -400,6 +499,12 @@ footer p {
   color: rgb(0, 0, 0);
 }
 
+/* small utility to ensure there is no horizontal scroll from images or long text */
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+}
+
 @media only screen and (min-width: 35rem) {
   header {
     padding: 2rem 16px;
@@ -407,10 +512,40 @@ footer p {
   header h1 {
     font-size: 2rem;
   }
+  section {
+    grid-template-columns: 1fr 1fr;
+  }
+  nav ul {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  nav ul li {
+    margin-bottom: 0;
+  }
+  nav a {
+    text-align: left; /* keep left-aligned */
+  }
+  .parent1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media only screen and (min-width: 60rem) {
   header, main, footer {
     max-width: 60rem;
     margin: auto;
+  }
+  section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .parent1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* adjust page width alignment to match variables */
+  header, main, footer {
+    max-width: 75rem;
   }
 }/*# sourceMappingURL=styles.css.map */

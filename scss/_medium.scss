@@ -4,3 +4,28 @@ header {
         font-size: 2rem;
 }
 }
+section {
+    grid-template-columns: 1fr 1fr;
+}
+
+nav ul {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+nav ul li {
+    margin-bottom: 0;
+}
+
+nav a {
+    text-align: left; /* keep left-aligned */
+}
+
+.parent1 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+section {
+        grid-template-columns: 1fr 1fr;
+}
