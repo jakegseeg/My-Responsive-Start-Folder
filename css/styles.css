@@ -337,7 +337,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Header with strong contrast and a visual tangent where it meets the nav */
 #headerWrapper {
   background-color: rgb(255, 179, 147);
   color: #ffffff;
@@ -384,12 +383,10 @@ header h1 {
   color: #08121a;
 }
 
-/* make nav touch the header to create a visual tangent; background extends full width
-   while the inner nav content is constrained to a centered max width */
 #navWrapper {
   margin-top: -8px;
   background-image: linear-gradient(to bottom, rgb(255, 179, 147) 0%, #5197e1 100%);
-  /* full-width wrapper background — padding on the nav itself */
+  /* full-width wrapper background — padding on the nav  */
 }
 #navWrapper nav {
   max-width: 75rem;
@@ -436,7 +433,6 @@ section {
   grid-template-columns: 1fr;
 }
 
-/* Card grid for the posters demonstrating proximity, contrast, and hierarchy */
 .parent1 {
   display: grid;
   grid-template-columns: 1fr;
@@ -499,7 +495,6 @@ footer p {
   color: rgb(0, 0, 0);
 }
 
-/* small utility to ensure there is no horizontal scroll from images or long text */
 img, picture, video {
   max-width: 100%;
   height: auto;
